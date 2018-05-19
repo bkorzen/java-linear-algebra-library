@@ -1,0 +1,48 @@
+@startuml
+
+' - private
+' #  protected
+' ~ package private
+' + public
+' {static} {abstract}
+' <|-- extension
+' *-- composition
+' o-- aggregaion
+'---------------------------------------------------
+
+Matrix <-.- LUDecomposition
+Matrix <-.- QRDecomposition
+Matrix <-.- CholeskyDecomposition
+
+Class Matrix{
+    -matrix: double[][]
+    -size: int
+
+    +Matrix(int size)
+    +Matrix (double[][], int)
+    +Matrix (double[], int)
+    +FillMatrix(): void
+    +printMatrix(): void
+    +transpose(): void
+    +MultiplyByScalar(double): void
+    +ArrayMultiplication(Matrix): void
+    +{static}Multiply(Matrix, Matrix, int): Matrix
+    +{static}Determinant(Matrix, int): double
+    -{static}Cofactor(double[][], double[][], int, int, int): void
+    +{static}Adjugate(Matrix, int): Matrix
+    +{static}Inverse(Matrix , int)
+
+}
+
+class LUDecomposition{
+}
+
+class QRDecomposition{
+}
+
+class CholeskyDecomposition{
+}
+
+
+
+@enduml
